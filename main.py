@@ -22,6 +22,7 @@ from kivy.uix.togglebutton import ToggleButton
 from kivy.uix.label import Label
 from lib.sensor import SensorListener, SensorNotFound, sensortypes
 from lib.gps import GpsListener
+from kivy.metrics import sp
 
 
 class NumberSlider(FloatLayout):
@@ -117,7 +118,7 @@ class AndroidDemoApp(App):
     def error(self, msg):
         self.root.maininit = False
         self.root.maincontent.clear_widgets()
-        lbl = Label(text=msg, text_size=('100sp', None))
+        lbl = Label(text=str(msg), text_size=(sp(100), None))
         self.root.maincontent.add_widget(lbl)
 
     def select_category(self, button):
