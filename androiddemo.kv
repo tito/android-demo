@@ -1,0 +1,35 @@
+#:kivy 1.6.1
+
+<MainUI>:
+	dropdown: dropdown
+	maincontent: maincontent
+	GridLayout:
+		cols: 2
+		GridLayout:
+			id: dropdown
+			cols: 1
+		GridLayout:
+			cols: 1
+			id: maincontent
+			
+
+<NumberSlider>:
+	canvas.before:
+		Color:
+			rgb: 1, 0, 0
+		Rectangle:
+			pos: self.center_x, self.y
+			size: (self.width / 2.) * (self.normalized_value), self.height
+
+	GridLayout:
+		pos: root.pos
+		size: root.size
+		cols: 3
+		Label:
+			text: '{:.2f}'.format(root.min)
+		Label:
+			text: '{:.2f}'.format(root.value)
+		Label:
+			text: '{:.2f}'.format(root.max)
+
+
